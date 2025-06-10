@@ -1,4 +1,4 @@
-name: Build and Deploy for Go services
+name: Build and Deploy for Go service
 
 on:
   push:
