@@ -1,4 +1,4 @@
-name: Build and Deploy for Go servicess
+name: Build and Deploy for Go service
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 env:
-  SERVICE_NAME: go
-  NAMESPACE: demo
+  SERVICE_NAME: promotion
+  NAMESPACE: tc-test-tc-test
   CLUSTER_NAME: zopdev-demo
   CLUSTER_PROJECT: festive-canto-445008-j2
   GAR_PROJECT: festive-canto-445008-j2
@@ -39,7 +39,7 @@ jobs:
         with:
           registry: us-central1-docker.pkg.dev
           username: _json_key
-          password: ${{ secrets.GO_DEMO_DEPLOYMENT_KEY }}
+          password: ${{ secrets.PROMOTION_TC_TEST_TC_TEST_DEPLOYMENT_KEY }}
 
       - name: Build and Push Docker Image to GAR
         uses: docker/build-push-action@v2
@@ -67,7 +67,7 @@ jobs:
       - name: Authorize to GCP service account
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets.GO_DEMO_DEPLOYMENT_KEY }}
+          credentials_json: ${{ secrets.PROMOTION_TC_TEST_TC_TEST_DEPLOYMENT_KEY }}
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
